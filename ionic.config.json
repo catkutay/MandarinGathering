@@ -1,0 +1,7 @@
+{
+  "name": "DalangGather",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
