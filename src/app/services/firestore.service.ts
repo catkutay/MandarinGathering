@@ -65,7 +65,7 @@ export class FirestoreService {
   }
   getWordList(): Observable<Word[]> {
     var wordList = this.firestore.collection<Word>(`wordList`).valueChanges();
-    
+    console.log(wordList);
     return wordList;
   }
   getWordDetail(wordId: string): Observable<Word> {
