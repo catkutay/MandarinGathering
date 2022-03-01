@@ -28,7 +28,7 @@ export class FirestoreService {
   //remote actions with firestore and firebase database
   createWord(
     english: string,
-    language: string,
+    mandarin: string,
     example: string,
     partOfSpeech: string,
     audio: string
@@ -38,7 +38,7 @@ export class FirestoreService {
     return this.firestore.doc(`wordList/${id}`).set({
       id,
       english,
-      language,
+      mandarin,
       example,
       partOfSpeech,
       audio,
@@ -48,7 +48,7 @@ export class FirestoreService {
   updateWord(
     id: string,
     english: string,
-    language: string,
+    mandarin: string,
     example: string,
     partOfSpeech: string,
     audio: string
@@ -56,8 +56,8 @@ export class FirestoreService {
     //this.uploadFilename(language);
     return this.firestore.doc(`wordList/${id}`).set({
       id,
+      mandarin,
       english,
-      language,
       example,
       partOfSpeech,
       audio,

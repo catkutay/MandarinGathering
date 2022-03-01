@@ -14,8 +14,8 @@
     
       <ion-item *ngFor="let word of wordList | async" routerLink="/detail/{{word.id}}">
         <ion-label>
-          <h2>{{ word.english}}</h2>
-          <p>Translation: {{ word.language }}</p>
+          <h2>{{ word.mandarin}}</h2>
+          <p>Translation: {{ word.english }}</p>
         </ion-label>
       </ion-item>
       

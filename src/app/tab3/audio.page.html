@@ -9,8 +9,8 @@
   <form [formGroup]="createAudioForm" >
     
     <ion-item>
-      <ion-label stacked>Language</ion-label>
-      <ion-input formControlName="language" type="text" placeholder="How is this word in your Language written as text?"> </ion-input>
+      <ion-label stacked>English</ion-label>
+      <ion-input formControlName="english" type="text" placeholder="How is this phrase written as text in english?"> </ion-input>
     </ion-item>
     <ion-button expand="block" (click)="startRecording()" [disabled]="!createAudioForm.valid || recording"> Start Recording </ion-button>
  

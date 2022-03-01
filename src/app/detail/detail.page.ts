@@ -45,15 +45,15 @@ export class DetailPage implements OnInit {
       this.storedFileNames = result.files;
 
       for (let fileString of this.storedFileNames) {
-        if (fileString == this.word.language + '.wav') {
+        if (fileString == this.word.english + '.wav') {
           //assign file
 
           this.word.audio = fileString;
           //update in cloud
           this.firestoreService.updateWord(
             this.word.id,
+            this.word.mandarin,
             this.word.english,
-            this.word.language,
             this.word.example,
             this.word.partOfSpeech,
             this.word.audio
@@ -66,18 +66,17 @@ export class DetailPage implements OnInit {
     //Used when add audio file to update on firebase database
     this.firestoreService.updateWord(
       this.word.id,
+      this.word.mandarin,
       this.word.english,
-      this.word.language,
       this.word.example,
       this.word.partOfSpeech,
       this.word.audio
     );
     var filename = this.word.audio;
-   
-        this.firestoreService.uploadFilename(filename);
 
-        console.log('Uploaded Recording: ' + filename);
-      
+    this.firestoreService.uploadFilename(filename);
+
+    console.log('Uploaded Recording: ' + filename);
   }
   async readAudio(filename: string) {
     //Select audio file of same name as langauge word, if exists
@@ -96,16 +95,16 @@ export class DetailPage implements OnInit {
       }
     );
   }
-  async deleteWord(wordId: string, language: string): Promise<void> {
+  async deleteWord(wordId: string, english: string): Promise<void> {
     //deleteing word from wordlist and firebase database
     const alert = await this.alertController.create({
-      message: `Are you sure you want to delete ${language}?`,
+      message: `Are you sure you want to delete ${english}?`,
       buttons: [
         {
           text: 'Cancel',
           role: 'cancel',
           handler: (language) => {
-            console.log('Confirm Cancel: '+language);
+            console.log('Confirm Cancel: ' + english);
           },
         },
         {

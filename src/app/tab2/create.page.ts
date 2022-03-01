@@ -23,8 +23,8 @@ export class CreatePage implements OnInit {
     private router: Router
   ) {
     this.createWordForm = formBuilder.group({
+      mandarin: ['', Validators.required],
       english: ['', Validators.required],
-      language: ['', Validators.required],
       example: ['', Validators.required],
       partOfSpeech: ['', Validators.required],
     });
@@ -33,12 +33,12 @@ export class CreatePage implements OnInit {
     const loading = await this.loadingCtrl.create();
 
     const english = this.createWordForm.value.english;
-    const language = this.createWordForm.value.language;
+    const mandarin = this.createWordForm.value.mandarin;
     const example = this.createWordForm.value.example;
     const partOfSpeech = this.createWordForm.value.partOfSpeech;
     const audio = null;
     this.firestoreService
-      .createWord(english, language, example, partOfSpeech, audio)
+      .createWord(mandarin, english, example, partOfSpeech, audio)
       .then(
         () => {
           loading.dismiss().then(() => {

@@ -3,13 +3,13 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ word?.english }}</ion-title>
+    <ion-title>{{ word?.mandarin }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <h3>Translation</h3>
-  <p>The word {{ word?.english }} is translated as {{ word?.language }}</p>
+  <p>The word {{ word?.mandarin }} is translated as {{ word?.english }}</p>
 <h3> Audio:</h3>
 <div *ngIf=" word?.audio; else conditionFalse ">
 
@@ -33,6 +33,6 @@
 
 <ion-button  (click)="updateWord()"> SAVE Word </ion-button>
 
-  <ion-button  (click)="deleteWord(word.id, word.language)"> DELETE Word </ion-button>
+  <ion-button  (click)="deleteWord(word.id, word.english)"> DELETE Word </ion-button>
 
 </ion-content>

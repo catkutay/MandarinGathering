@@ -20,7 +20,7 @@ export class AudioPage implements OnInit {
   recordData: any;
   storedFileNames = [];
   public createAudioForm: FormGroup;
-  public language: String;
+  public english: String;
   constructor(
     private firestoreService: FirestoreService,
     public loadingCtrl: LoadingController,
@@ -28,7 +28,7 @@ export class AudioPage implements OnInit {
     private localService: LocalstoreService
   ) {
     this.createAudioForm = formBuilder.group({
-      language: ['', Validators.required],
+      english: ['', Validators.required],
     });
   }
 
@@ -50,7 +50,7 @@ export class AudioPage implements OnInit {
     });
   }
   async startRecording() {
-    this.language = this.createAudioForm.value.language;
+    this.english = this.createAudioForm.value.english;
     if (!this.recording) {
       this.recording = true;
       this.localService.startRecording();
@@ -58,10 +58,10 @@ export class AudioPage implements OnInit {
     console.log('Started');
   }
   stopRecording() {
-    //this.language = this.createAudioForm.value.language;
+    //this.english = this.createAudioForm.value.english;
     
-    console.log(this.language);
-    const fileName = this.language + '.wav';
+    console.log(this.english);
+    const fileName = this.english + '.wav';
     var fileType = 'audio/wav';
 
     if (this.recording) {
