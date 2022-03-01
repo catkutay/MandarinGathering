@@ -59,9 +59,9 @@ export class AudioPage implements OnInit {
   }
   stopRecording() {
     //this.english = this.createAudioForm.value.english;
-    
+
     console.log(this.english);
-    const fileName = this.english + '.wav';
+    const fileName = this.english.replace(' ', '_') + '.wav';
     var fileType = 'audio/wav';
 
     if (this.recording) {
@@ -78,7 +78,7 @@ export class AudioPage implements OnInit {
   }
   async playFile(filename: string) {
     // files not playing on web browser, try on app
-    this.localService.playFile (filename);
+    this.localService.playFile(filename);
   }
   // public async playFile(filename: string) {
   //   this.localService.playFile(filename);

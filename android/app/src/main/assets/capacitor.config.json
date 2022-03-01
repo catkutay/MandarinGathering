@@ -1,6 +1,6 @@
 {
 	"appId": "au.com.cities",
-	"appName": "DalangGathering",
+	"appName": "MandarinGathering",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"plugins": {
