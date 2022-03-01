@@ -1,5 +1,5 @@
-# Simpel app to collect langauge recordings
-# Does not store audio to Firestore yet
+# Simple app to collect langauge recordings
+
 
 To install run 
 
