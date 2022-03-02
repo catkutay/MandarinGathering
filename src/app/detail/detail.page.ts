@@ -43,9 +43,8 @@ export class DetailPage implements OnInit {
       directory: Directory.Data,
     }).then((result) => {
       this.storedFileNames = result.files;
-
+      console.log(this.storedFileNames);
       for (let fileString of this.storedFileNames) {
-       
         if (fileString == this.word.english.replace(' ', '_') + '.wav') {
           //assign file
 

@@ -32,6 +32,7 @@ export class RecordItem implements OnInit {
     private localService: LocalstoreService
   ) {
     this.storedFileNames = new Array<string>();
+    this.word.audio=this.word.english.replace(/ /g, '_') + '.wav';
   }
 
   ngOnInit() {

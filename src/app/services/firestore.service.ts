@@ -65,7 +65,7 @@ export class FirestoreService {
   }
   getWordList(): Observable<Word[]> {
     var wordList = this.firestore.collection<Word>(`wordList`).valueChanges();
-  
+
     return wordList;
   }
   getWordDetail(wordId: string): Observable<Word> {
@@ -106,7 +106,7 @@ export class FirestoreService {
       var filedata = result.data;
       var fileType = 'audio/wav';
 
-      let id = 'test';
+      let id = 'audio_data';
       var folder = new Date().getTime();
       var metadata = {
         contentType: fileType,
