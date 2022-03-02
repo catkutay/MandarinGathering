@@ -61,7 +61,7 @@ export class AudioPage implements OnInit {
     //this.english = this.createAudioForm.value.english;
 
     console.log(this.english);
-    const fileName = this.english.replace(' ', '_') + '.wav';
+    const fileName = this.english.replace(/ /g, '_') + '.wav';
     var fileType = 'audio/wav';
 
     if (this.recording) {

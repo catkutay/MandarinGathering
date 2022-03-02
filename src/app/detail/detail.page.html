@@ -33,6 +33,7 @@
 
 <ion-button  (click)="updateWord()"> SAVE Word </ion-button>
 
-  <ion-button  (click)="deleteWord(word.id, word.english)"> DELETE Word </ion-button>
-
+  <ion-button  (click)="deleteWord(word.id, word.audio)"> DELETE Word </ion-button>
+<ion-button expand="full" (click)="deleteAllFiles()" font-colour="danger">
+  Delete all Recordings </ion-button>
 </ion-content>

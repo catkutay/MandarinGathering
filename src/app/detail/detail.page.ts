@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Word } from '../models/word.interface';
 import { FirestoreService } from '../services/firestore.service';
+import { LocalstoreService } from '../services/localstore.service';
 
 import { Plugins } from '@capacitor/core';
 const { FilePicker, FilePickerResult } = Plugins;
@@ -21,7 +22,7 @@ export class DetailPage implements OnInit {
 
     private firestoreService: FirestoreService,
     private route: ActivatedRoute,
-
+    private localService: LocalstoreService,
     private router: Router
   ) {
     this.storedFileNames = new Array<string>();
@@ -43,11 +44,12 @@ export class DetailPage implements OnInit {
       directory: Directory.Data,
     }).then((result) => {
       this.storedFileNames = result.files;
-      console.log(this.storedFileNames);
+      // console.log(this.storedFileNames);
       for (let fileString of this.storedFileNames) {
-        if (fileString == this.word.english.replace(' ', '_') + '.wav') {
+        if (fileString == this.word.english.replace(/ /g, '_') + '.wav') {
           //assign file
-
+          if (!this.word.example) this.word.example = '';
+          if (!this.word.partOfSpeech) this.word.partOfSpeech = '';
           this.word.audio = fileString;
           //update in cloud
           this.firestoreService.updateWord(
@@ -64,6 +66,10 @@ export class DetailPage implements OnInit {
   }
   async updateWord() {
     //Used when add audio file to update on firebase database
+    //ensure all fields exist
+    if (!this.word.example) this.word.example = '';
+    if (!this.word.partOfSpeech) this.word.partOfSpeech = '';
+    console.log(this.word);
     this.firestoreService.updateWord(
       this.word.id,
       this.word.mandarin,
@@ -95,16 +101,16 @@ export class DetailPage implements OnInit {
       }
     );
   }
-  async deleteWord(wordId: string, english: string): Promise<void> {
+  async deleteWord(wordId: string, audio: string): Promise<void> {
     //deleteing word from wordlist and firebase database
     const alert = await this.alertController.create({
-      message: `Are you sure you want to delete ${english}?`,
+      message: `Are you sure you want to delete ${audio}?`,
       buttons: [
         {
           text: 'Cancel',
           role: 'cancel',
-          handler: (language) => {
-            console.log('Confirm Cancel: ' + english);
+          handler: (audio) => {
+            console.log('Confirm Cancel: ' + audio);
           },
         },
         {
@@ -139,5 +145,12 @@ export class DetailPage implements OnInit {
       audioRef.oncanplaythrough = () => audioRef.play();
       audioRef.load();
     });
+  }
+  async deleteAllFiles() {
+    console.log(this.storedFileNames);
+    for (let fileN of this.storedFileNames) {
+      this.localService.deleteFile(fileN);
+    }
+    this.localService.loadFiles();
   }
 }

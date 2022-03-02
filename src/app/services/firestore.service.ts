@@ -113,7 +113,7 @@ export class FirestoreService {
       };
       //name firestore files with data to choose latest if need to
 
-      let userProfileRef = this.af.ref(`/${id}/${folder}/${fileName}`);
+      let userProfileRef = this.af.ref(`/${id}/${fileName}`);
       userProfileRef
         .putString(result.data, 'base64', metadata)
         .then((snapshot) => {})
