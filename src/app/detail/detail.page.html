@@ -3,13 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ word?.mandarin }}</ion-title>
+    <ion-title>{{ word?.Mandarin }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <h3>Translation</h3>
-  <p>The word {{ word?.mandarin }} is translated as {{ word?.english }}</p>
+  <p>The word {{ word?.Mandarin }} is translated as {{ word?.Translation }}</p>
+  <p>Literal phrase {{ word?.Literal }}</p>
 <h3> Audio:</h3>
 <div *ngIf=" word?.audio; else conditionFalse ">
 

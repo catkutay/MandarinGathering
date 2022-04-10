@@ -39,7 +39,7 @@ export class RecordItem implements OnInit {
     this.firestoreService.getWordDetail(wordId).subscribe((word) => {
       this.word = word;
       //console.log(this.word);
-      this.word.audio = this.word.english.replace(/ /g, '_') + '.wav';
+      this.word.audio = this.word.Translation.replace(/ /g, '_') + '.wav';
     });
 
     // will print true / false based on the ability of the current device (or web browser) to record audio

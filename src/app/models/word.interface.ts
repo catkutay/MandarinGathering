@@ -1,7 +1,8 @@
 export interface Word {
   id: string;
-  mandarin: string;
-  english: string;
+  Mandarin: string;
+  Literal: string;
+  Translation: string;
   example: string;
   partOfSpeech: string;
   audio: string;

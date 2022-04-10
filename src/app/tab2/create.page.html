@@ -9,12 +9,17 @@
 
   <form [formGroup]="createWordForm" (submit)="createWord()">
     <ion-item>
-      <ion-label stacked>English</ion-label>
-      <ion-input formControlName="mandarin" type="text" placeholder="What's this word in Mandarin?"> </ion-input>
+      <ion-label stacked>Mandarin</ion-label>
+      <ion-input formControlName="Mandarin" type="text" placeholder="What's this phrase in Mandarin?"> </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Language</ion-label>
-      <ion-input formControlName="language" type="text" placeholder="How is this word in English written as text?"> </ion-input>
+      <ion-label stacked>Literal</ion-label>
+      <ion-input formControlName="Literal" type="text" placeholder="How is this phrase written Literaly in English?">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Translation</ion-label>
+      <ion-input formControlName="Translation" type="text" placeholder="How is this phrase written in correct English?"> </ion-input>
     </ion-item>
  
     

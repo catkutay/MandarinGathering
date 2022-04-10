@@ -46,7 +46,7 @@ export class DetailPage implements OnInit {
       this.storedFileNames = result.files;
       // console.log(this.storedFileNames);
       for (let fileString of this.storedFileNames) {
-        if (fileString == this.word.english.replace(/ /g, '_') + '.wav') {
+        if (fileString == this.word.Translation.replace(/ /g, '_') + '.wav') {
           //assign file
           if (!this.word.example) this.word.example = '';
           if (!this.word.partOfSpeech) this.word.partOfSpeech = '';
@@ -54,8 +54,9 @@ export class DetailPage implements OnInit {
           //update in cloud
           this.firestoreService.updateWord(
             this.word.id,
-            this.word.mandarin,
-            this.word.english,
+            this.word.Mandarin,
+            this.word.Literal,
+            this.word.Translation,
             this.word.example,
             this.word.partOfSpeech,
             this.word.audio
@@ -72,8 +73,9 @@ export class DetailPage implements OnInit {
     console.log(this.word);
     this.firestoreService.updateWord(
       this.word.id,
-      this.word.mandarin,
-      this.word.english,
+      this.word.Mandarin,
+      this.word.Literal,
+      this.word.Translation,
       this.word.example,
       this.word.partOfSpeech,
       this.word.audio

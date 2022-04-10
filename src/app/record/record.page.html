@@ -4,13 +4,13 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
   
-    <ion-title>{{ word?.mandarin }}</ion-title>
+    <ion-title>{{ word?.Mandarin }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <h3>Translation</h3>
-  <p>The words {{ word?.mandarin }} is translated as <strong>{{ word?.english }}</strong>.</p>
+  <p>The words {{ word?.Mandarin }} is translated as <strong>{{ word?.Translation }}</strong>.</p>
 <div *ngIf=" word?.example; ">
    <h3>Example</h3>
   <p>It is used in an example as {{ word?.example }}.</p>
