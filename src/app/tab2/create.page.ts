@@ -34,7 +34,7 @@ export class CreatePage implements OnInit {
     const loading = await this.loadingCtrl.create();
 
     const Translation = this.createWordForm.value.Translation;
-    const Literal = this.createWordForm.value.Literal;
+    const Literal = this.createWordForm.value.literal;
     const Mandarin = this.createWordForm.value.Mandarin;
     const example = this.createWordForm.value.example;
     const partOfSpeech = this.createWordForm.value.partOfSpeech;

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticateService } from './services/auth-service.service';
 import { Observable } from 'rxjs';
-import { firebaseConfig } from './services/credentials';
+import { firebaseConfig } from '../environments/environment';
 import { AlertController } from '@ionic/angular';
 
 @Component({

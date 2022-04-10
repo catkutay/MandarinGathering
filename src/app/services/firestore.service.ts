@@ -35,7 +35,7 @@ export class FirestoreService {
     audio: string
   ): Promise<void> {
     const id = this.firestore.createId();
-    //this.uploadFilename(language);
+    //this.uploadFilename(Translation);
     return this.firestore.doc(`wordList/${id}`).set({
       id,
       Translation,
@@ -56,7 +56,7 @@ export class FirestoreService {
     partOfSpeech: string,
     audio: string
   ): Promise<void> {
-    //this.uploadFilename(language);
+    //this.uploadFilename(Translation);
     return this.firestore.doc(`wordList/${id}`).set({
       id,
       Mandarin,
