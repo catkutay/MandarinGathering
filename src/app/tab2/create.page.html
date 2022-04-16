@@ -9,6 +9,10 @@
 
   <form [formGroup]="createWordForm" (submit)="createWord()">
     <ion-item>
+      <ion-label stacked>topic</ion-label>
+      <ion-input formControlName=Topic" type="text" placeholder="What's this phrase in Mandarin?"> </ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label stacked>Mandarin</ion-label>
       <ion-input formControlName="Mandarin" type="text" placeholder="What's this phrase in Mandarin?"> </ion-input>
     </ion-item>

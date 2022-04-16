@@ -29,6 +29,7 @@ export class FirestoreService {
   createWord(
     Translation: string,
     Literal: string,
+    Topic: string,
     Mandarin: string,
     example: string,
     partOfSpeech: string,
@@ -39,6 +40,7 @@ export class FirestoreService {
     return this.firestore.doc(`wordList/${id}`).set({
       id,
       Translation,
+      Topic,
       Literal,
       Mandarin,
       example,
@@ -50,6 +52,7 @@ export class FirestoreService {
   updateWord(
     id: string,
     Translation: string,
+    Topic: string,
     Mandarin: string,
     Literal: string,
     example: string,
@@ -61,6 +64,7 @@ export class FirestoreService {
       id,
       Mandarin,
       Literal,
+      Topic,
       Translation,
       example,
       partOfSpeech,

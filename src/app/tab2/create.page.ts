@@ -25,6 +25,7 @@ export class CreatePage implements OnInit {
     this.createWordForm = formBuilder.group({
       Mandarin: ['', Validators.required],
       Literal: ['', Validators.required],
+      Topic: ['', Validators.required],
       Translation: ['', Validators.required],
       example: ['', Validators.required],
       partOfSpeech: ['', Validators.required],
@@ -34,13 +35,15 @@ export class CreatePage implements OnInit {
     const loading = await this.loadingCtrl.create();
 
     const Translation = this.createWordForm.value.Translation;
+    const Topic = this.createWordForm.value.Topic;
+   
     const Literal = this.createWordForm.value.literal;
     const Mandarin = this.createWordForm.value.Mandarin;
     const example = this.createWordForm.value.example;
     const partOfSpeech = this.createWordForm.value.partOfSpeech;
     const audio = null;
     this.firestoreService
-      .createWord(Mandarin, Literal, Translation, example, partOfSpeech, audio)
+      .createWord(Mandarin, Literal, Topic, Translation, example, partOfSpeech, audio)
       .then(
         () => {
           loading.dismiss().then(() => {
