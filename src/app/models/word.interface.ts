@@ -9,3 +9,7 @@ export interface Word {
   audio: string;
   language_id: string;
 }
+export interface Topic {
+  Topic: string;
+  Translate: string;
+}

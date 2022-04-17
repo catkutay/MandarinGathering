@@ -9,8 +9,17 @@
 
   <form [formGroup]="createWordForm" (submit)="createWord()">
     <ion-item>
-      <ion-label stacked>topic</ion-label>
-      <ion-input formControlName=Topic" type="text" placeholder="What's this phrase in Mandarin?"> </ion-input>
+      <ion-label stacked>Topic</ion-label>
+    
+        <ion-select placeholder="Select One Topic">
+         
+           
+        <ion-select-option *ngFor="let topic of topicList | async" value="{{ topic.Topic }}">
+          {{ topic.Topic }}
+        </ion-select-option>
+      
+      </ion-select>
+
     </ion-item>
     <ion-item>
       <ion-label stacked>Mandarin</ion-label>

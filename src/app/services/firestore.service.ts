@@ -7,7 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import 'firebase/firestore';
-import { Word } from '../models/word.interface';
+import { Word, Topic } from '../models/word.interface';
 import { Observable } from 'rxjs';
 import 'capacitor-firebase-upload-file';
 
@@ -75,6 +75,10 @@ export class FirestoreService {
     var wordList = this.firestore.collection<Word>(`wordList`).valueChanges();
 
     return wordList;
+  }
+  getTopicList(): Observable<Topic[]> {
+    var topicList = this.firestore.collection<Topic>(`DropDownList`).valueChanges();
+    return topicList;
   }
   getWordDetail(wordId: string): Observable<Word> {
     return this.firestore
